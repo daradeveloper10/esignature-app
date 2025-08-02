@@ -4,8 +4,7 @@ import { copyFileSync, existsSync } from 'fs'
 import { resolve } from 'path'
 
 export default defineConfig({
-  root: './',
-  plugins: [
+    plugins: [
     react(),
     {
       name: 'copy-netlify-toml',
