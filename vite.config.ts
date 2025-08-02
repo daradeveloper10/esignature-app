@@ -1,12 +1,12 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { copyFileSync, existsSync } from 'fs'
-import { resolve } from 'path'
+import path from 'path'
 import { fileURLToPath } from 'url'
 
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = path.dirname(__filename);
 
 export default defineConfig({
     plugins: [
@@ -15,8 +15,8 @@ export default defineConfig({
       name: 'copy-netlify-toml',
       writeBundle() {
         try {
-          const source = resolve(__dirname, 'netlify.toml')
-          const dest = resolve(__dirname, 'dist/netlify.toml')
+          const source = path.resolve(__dirname, 'netlify.toml')
+          const dest = path.resolve(__dirname, 'dist/netlify.toml')
           
           if (existsSync(source)) {
             copyFileSync(source, dest)
@@ -36,7 +36,7 @@ export default defineConfig({
     assetsDir: 'assets',
     sourcemap: false,
     rollupOptions: {
-      input: resolve(__dirname, 'index.html'),
+      input: path.resolve(__dirname, 'index.html'),
         output: {
         manualChunks: undefined
       }
