@@ -4,12 +4,11 @@ import { copyFileSync, existsSync } from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default defineConfig({
-    plugins: [
+  plugins: [
     react(),
     {
       name: 'copy-netlify-toml',
@@ -36,8 +35,8 @@ export default defineConfig({
     assetsDir: 'assets',
     sourcemap: false,
     rollupOptions: {
-      input: path.resolve(__dirname, 'index.html'),
-        output: {
+      // REMOVE THIS LINE: input: path.resolve(__dirname, 'index.html'),
+      output: {
         manualChunks: undefined
       }
     }
