@@ -29,13 +29,12 @@ export default defineConfig({
       }
     }
   ],
-  base: './',
+  base: '/', // Change this line from './' to '/'
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: false,
     rollupOptions: {
-      // REMOVE THIS LINE: input: path.resolve(__dirname, 'index.html'),
       output: {
         manualChunks: undefined
       }
