@@ -8,6 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default defineConfig({
+  root: process.cwd(), // Add this line
   plugins: [
     react(),
     {
@@ -29,7 +30,7 @@ export default defineConfig({
       }
     }
   ],
-  base: '/', // Change this line from './' to '/'
+  base: '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
